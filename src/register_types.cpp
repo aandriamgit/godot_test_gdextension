@@ -1,6 +1,6 @@
 #include "./summator.h"
 /*#include "example_class.h"*/
-#include "register_types.h"
+// #include "register_types.h"
 #include <gdextension_interface.h>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/defs.hpp>
@@ -14,7 +14,7 @@ void	initialize_gdextension_types(ModuleInitializationLevel p_level)
 	{
 		return ;
 	}
-	/*GDREGISTER_CLASS(ExampleClass);*/
+	// GDREGISTER_CLASS(ExampleClass);
 	GDREGISTER_CLASS(Summator);
 }
 
