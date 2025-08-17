@@ -1,4 +1,5 @@
 #include "./summator.h"
+#include "traficLight.h"
 /*#include "example_class.h"*/
 // #include "register_types.h"
 #include <gdextension_interface.h>
@@ -16,6 +17,7 @@ void	initialize_gdextension_types(ModuleInitializationLevel p_level)
 	}
 	// GDREGISTER_CLASS(ExampleClass);
 	GDREGISTER_CLASS(Summator);
+	GDREGISTER_CLASS(traficLight);
 }
 
 void	uninitialize_gdextension_types(ModuleInitializationLevel p_level)
