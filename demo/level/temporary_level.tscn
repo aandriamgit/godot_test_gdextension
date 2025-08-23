@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp7sxe5xl5shk"]
+[gd_scene load_steps=6 format=3 uid="uid://dp7sxe5xl5shk"]
 
 [ext_resource type="Texture2D" uid="uid://d3463lq4inomu" path="res://level/checkboard.png" id="1_cig4d"]
-[ext_resource type="PackedScene" uid="uid://cidag03bielx4" path="res://player/player.tscn" id="2_bc4qa"]
 
 [sub_resource type="Environment" id="Environment_pev5d"]
 background_mode = 1
@@ -53,34 +52,175 @@ shadow_enabled = true
 directional_shadow_max_distance = 40.0
 
 [node name="Bridge2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 66.6648)
 use_collision = true
 size = Vector3(4, 1, 3)
 material = SubResource("StandardMaterial3D_ooyhk")
 
 [node name="Bridge5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70.6648)
 use_collision = true
 size = Vector3(4, 1, 3)
 material = SubResource("StandardMaterial3D_ooyhk")
 
 [node name="Bridge6" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 74.6648)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.76207, -21.9324)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.76207, -17.9324)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.76207, -13.9324)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.11338, -24.1981)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.11338, -20.1981)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.11338, -16.1981)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86344, -25.9076)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86344, -21.9076)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86344, -17.9076)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06685, -25.4719)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06685, -21.4719)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06685, -17.4719)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.4624)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.4624)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.4624)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.5502)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.5502)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.5502)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.6141)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.6141)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.6141)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge2" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.8876)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge5" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.8876)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge6" type="CSGBox3D" parent="Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6/Bridge6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.8876)
 use_collision = true
 size = Vector3(4, 1, 3)
 material = SubResource("StandardMaterial3D_ooyhk")
 
 [node name="Platform6" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245789, -5, 0.13105)
 use_collision = true
-size = Vector3(17, 11, 15)
+size = Vector3(127.579, 11, 126.685)
 material = SubResource("StandardMaterial3D_pixig")
 
 [node name="Platform7" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 82.1648)
 use_collision = true
 size = Vector3(9, 11, 9)
 material = SubResource("StandardMaterial3D_7l0sc")
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_bc4qa")]
-transform = Transform3D(-0.993191, 0, 0.116497, 0, 1, 0, -0.116497, 0, -0.993191, 2.41081, 0.594316, -1.40877)

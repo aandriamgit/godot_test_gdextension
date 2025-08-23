@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://s2c62y05garf"]
+
+[node name="rtsCamera" type="rtsCamera"]
+
+[node name="Elevation" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Elevation"]
