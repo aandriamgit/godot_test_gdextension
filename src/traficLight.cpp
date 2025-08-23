@@ -46,7 +46,7 @@ void traficLight::_notification(int p_what)
 {
 	switch (p_what)
 	{
-	NOTIFICATION_READY:
+	case NOTIFICATION_READY:
 		setTraficLightType(lightType);
 		break ;
 	}
