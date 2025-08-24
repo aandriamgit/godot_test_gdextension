@@ -8,4 +8,4 @@
 [node name="TemporaryLevel" parent="." instance=ExtResource("1_f3sb7")]
 
 [node name="rtsCamera" parent="." instance=ExtResource("2_fj7yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1712, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
