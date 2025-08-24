@@ -1,6 +1,10 @@
 #include "./rtsCamera.hpp"
 #include "godot_cpp/classes/input.hpp"
+#include "godot_cpp/classes/input_event.hpp"
+#include "godot_cpp/classes/input_event_mouse_motion.hpp"
 #include "godot_cpp/classes/object.hpp"
+#include "godot_cpp/classes/ref.hpp"
+#include "godot_cpp/core/print_string.hpp"
 #include "godot_cpp/variant/vector2.hpp"
 #include "godot_cpp/variant/vector3.hpp"
 
@@ -9,7 +13,7 @@ void rtsCamera::_bind_methods()
 }
 
 rtsCamera::rtsCamera() : _moveSpeed(0.8), _rotateKeySpeed(1.5), _zoomSpeed(3.0),
-	_minZoom(-20), _maxZoom(20)
+	_minZoom(-20), _maxZoom(20), _mouseSensitivity(0.2)
 {
 }
 
@@ -20,9 +24,10 @@ void rtsCamera::_ready()
 	_camera3d = Object::cast_to<Camera3D>(_pivot->get_child(0));
 	_moveTarget = get_position();
 	_rotateKeyTarget = get_rotation_degrees().y;
-	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0, 0, 150),
+	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0, 0, 100),
 			0.08));
 	_zoomTarget = _camera3d->get_position().z;
+	print_line(_camera3d->get_position(), _zoomTarget);
 }
 
 void rtsCamera::_process(float delta)
@@ -47,4 +52,16 @@ void rtsCamera::_process(float delta)
 				_rotateKeyTarget, 0), 0.05));
 	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0, 0,
 				_zoomTarget), 0.10));
+}
+
+void rtsCamera::_unhandled_input(const Ref<InputEvent> &event)
+{
+	Vector2	tmp;
+
+	if (event.is_valid() && event->is_action_pressed("rotate"))
+	{
+		Ref<InputEventMouseMotion> motion = event;
+		tmp = motion->get_relative();
+		_rotateKeyTarget -= tmp.x * _mouseSensitivity;
+	}
 }
