@@ -24,5 +24,4 @@ class rtsCamera : public godot::Node3D
 
 	void _ready() override;
 	void _process(float delta);
-	void _unhandled_input(const Ref<InputEvent> &event) override;
 };

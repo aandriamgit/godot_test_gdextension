@@ -8,7 +8,7 @@ void rtsCamera::_bind_methods()
 {
 }
 
-rtsCamera::rtsCamera() : _moveSpeed(0.6)
+rtsCamera::rtsCamera() : _moveSpeed(0.8)
 {
 }
 
@@ -30,5 +30,5 @@ void rtsCamera::_process(float delta)
 	movementDir = (get_transform().basis.xform(Vector3(inputDir.x, 0,
 					inputDir.y))).normalized();
 	_moveTarget += _moveSpeed * movementDir;
-	set_position(get_position().lerp(_moveTarget, 0.05));
+	set_position(get_position().lerp(_moveTarget, 0.08));
 }
