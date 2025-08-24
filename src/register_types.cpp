@@ -16,8 +16,8 @@ void	initialize_gdextension_types(ModuleInitializationLevel p_level)
 	}
 	GDREGISTER_CLASS(Summator);
 	GDREGISTER_CLASS(traficLight);
-	// GDREGISTER_RUNTIME_CLASS(rtsCamera);
-	ClassDB::register_class<rtsCamera>();
+	GDREGISTER_RUNTIME_CLASS(rtsCamera);
+	// ClassDB::register_class<rtsCamera>();
 }
 
 void	uninitialize_gdextension_types(ModuleInitializationLevel p_level)
