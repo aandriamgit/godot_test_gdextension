@@ -1,8 +1,10 @@
 #include "./rtsCamera.hpp"
 #include "godot_cpp/classes/input.hpp"
 #include "godot_cpp/classes/input_event.hpp"
+#include "godot_cpp/classes/input_event_mouse_motion.hpp"
 #include "godot_cpp/classes/object.hpp"
 #include "godot_cpp/classes/ref.hpp"
+#include "godot_cpp/core/math.hpp"
 #include "godot_cpp/core/print_string.hpp"
 #include "godot_cpp/variant/vector2.hpp"
 #include "godot_cpp/variant/vector3.hpp"
@@ -55,12 +57,38 @@ void rtsCamera::_process(float delta)
 				_zoomTarget, _zoomTarget), 0.06));
 }
 
+// void rtsCamera::_unhandled_input(const Ref<InputEvent> &event)
+// {
+// 	Vector2	tmp;
+//
+// 	if (event.is_valid() && event->is_action_pressed("rotate"))
+// 	{
+// 		Ref<InputEventMouse> mm = event;
+// 		if (mm.is_valid())
+// 		{
+// 			print_line("john");
+// 			Ref<InputEventMouseMotion> me = event;
+// 			_rotateKeyTarget -= me->get_relative().x * _mouseSensitivity;
+// 			set_rotation(Vector3(get_rotation_degrees().x
+// 					- (me->get_relative().y * _mouseSensitivity), 0, 0));
+// 			set_rotation(Vector3(CLAMP(get_rotation_degrees().x, -10, 30), 0,
+// 					0));
+// 		}
+// 	}
+// }
 void rtsCamera::_unhandled_input(const Ref<InputEvent> &event)
 {
-	Vector2	tmp;
+	Vector3	current_rot;
 
-	if (event.is_valid() && event->is_action_pressed("rotate"))
+	Ref<InputEventMouseMotion> motion = event;
+	if (motion.is_valid()
+		&& Input::get_singleton()->is_action_pressed("rotate"))
 	{
-		print_line("lol");
+		_rotateKeyTarget -= motion->get_relative().x * _mouseSensitivity;
+		current_rot = get_rotation_degrees();
+		current_rot.x -= motion->get_relative().y * _mouseSensitivity;
+		current_rot.x = CLAMP(current_rot.x, -50, 200);
+		current_rot.y = _rotateKeyTarget;
+		set_rotation_degrees(current_rot);
 	}
 }
