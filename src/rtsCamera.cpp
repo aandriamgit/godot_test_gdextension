@@ -1,7 +1,6 @@
 #include "./rtsCamera.hpp"
 #include "godot_cpp/classes/input.hpp"
 #include "godot_cpp/classes/input_event.hpp"
-#include "godot_cpp/classes/input_event_mouse_motion.hpp"
 #include "godot_cpp/classes/object.hpp"
 #include "godot_cpp/classes/ref.hpp"
 #include "godot_cpp/core/print_string.hpp"
@@ -53,7 +52,7 @@ void rtsCamera::_process(float delta)
 	set_rotation_degrees(get_rotation_degrees().lerp(Vector3(0,
 				_rotateKeyTarget, 0), 0.05));
 	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0,
-				_zoomTarget, 0), 0.10));
+				_zoomTarget, _zoomTarget), 0.06));
 }
 
 void rtsCamera::_unhandled_input(const Ref<InputEvent> &event)
