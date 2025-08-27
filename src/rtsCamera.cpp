@@ -35,6 +35,7 @@ void rtsCamera::_process(float delta)
 {
 	Vector2	inputDir;
 	Vector3	movementDir;
+	Vector3	tmp;
 	float	rotateKey;
 	int		zoomDir;
 
@@ -49,8 +50,9 @@ void rtsCamera::_process(float delta)
 	_rotateKeyTarget += rotateKey * _rotateKeySpeed;
 	_zoomTarget += zoomDir * _zoomSpeed;
 	set_position(get_position().lerp(_moveTarget, 0.08));
-	set_rotation_degrees(get_rotation_degrees().lerp(Vector3(get_rotation_degrees().x,
-				_rotateKeyTarget, get_rotation_degrees().z), 0.1));
+	tmp = get_rotation_degrees();
+	tmp.y = _rotateKeyTarget;
+	set_rotation_degrees(get_rotation_degrees().lerp(Vector3(tmp), 0.1));
 	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0,
 				_zoomTarget, _zoomTarget / 2), 0.06));
 }
