@@ -5,7 +5,6 @@
 #include "godot_cpp/classes/object.hpp"
 #include "godot_cpp/classes/ref.hpp"
 #include "godot_cpp/core/math.hpp"
-#include "godot_cpp/core/print_string.hpp"
 #include "godot_cpp/variant/vector2.hpp"
 #include "godot_cpp/variant/vector3.hpp"
 
@@ -50,6 +49,7 @@ void rtsCamera::_process(float delta)
 	_rotateKeyTarget += rotateKey * _rotateKeySpeed;
 	_zoomTarget += zoomDir * _zoomSpeed;
 	set_position(get_position().lerp(_moveTarget, 0.08));
+	// lol this needs more flags
 	// set_rotation_degrees(get_rotation_degrees().lerp(Vector3(0,
 	// 			_rotateKeyTarget, 0), 0.05));
 	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0,
