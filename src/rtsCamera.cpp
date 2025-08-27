@@ -49,9 +49,8 @@ void rtsCamera::_process(float delta)
 	_rotateKeyTarget += rotateKey * _rotateKeySpeed;
 	_zoomTarget += zoomDir * _zoomSpeed;
 	set_position(get_position().lerp(_moveTarget, 0.08));
-	// lol this needs more flags
-	// set_rotation_degrees(get_rotation_degrees().lerp(Vector3(0,
-	// 			_rotateKeyTarget, 0), 0.05));
+	set_rotation_degrees(get_rotation_degrees().lerp(Vector3(get_rotation_degrees().x,
+				_rotateKeyTarget, get_rotation_degrees().z), 0.1));
 	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0,
 				_zoomTarget, _zoomTarget / 2), 0.06));
 }
