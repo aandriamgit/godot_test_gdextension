@@ -14,7 +14,7 @@ void rtsCamera::_bind_methods()
 }
 
 rtsCamera::rtsCamera() : _moveSpeed(0.8), _rotateKeySpeed(1.5), _zoomSpeed(3.0),
-	_minZoom(-20), _maxZoom(20), _mouseSensitivity(0.2)
+	_minZoom(-20), _maxZoom(20), _mouseSensitivity(0.3)
 {
 }
 
@@ -30,7 +30,6 @@ void rtsCamera::_ready()
 	_camera3d->set_rotation_degrees(_camera3d->get_rotation_degrees().lerp(Vector3(-500,
 				0, 0), 0.08));
 	_zoomTarget = _camera3d->get_position().z;
-	print_line(_camera3d->get_position(), _zoomTarget);
 }
 
 void rtsCamera::_process(float delta)
@@ -51,31 +50,12 @@ void rtsCamera::_process(float delta)
 	_rotateKeyTarget += rotateKey * _rotateKeySpeed;
 	_zoomTarget += zoomDir * _zoomSpeed;
 	set_position(get_position().lerp(_moveTarget, 0.08));
-	set_rotation_degrees(get_rotation_degrees().lerp(Vector3(0,
-				_rotateKeyTarget, 0), 0.05));
+	// set_rotation_degrees(get_rotation_degrees().lerp(Vector3(0,
+	// 			_rotateKeyTarget, 0), 0.05));
 	_camera3d->set_position(_camera3d->get_position().lerp(Vector3(0,
-				_zoomTarget, _zoomTarget), 0.06));
+				_zoomTarget, _zoomTarget / 2), 0.06));
 }
 
-// void rtsCamera::_unhandled_input(const Ref<InputEvent> &event)
-// {
-// 	Vector2	tmp;
-//
-// 	if (event.is_valid() && event->is_action_pressed("rotate"))
-// 	{
-// 		Ref<InputEventMouse> mm = event;
-// 		if (mm.is_valid())
-// 		{
-// 			print_line("john");
-// 			Ref<InputEventMouseMotion> me = event;
-// 			_rotateKeyTarget -= me->get_relative().x * _mouseSensitivity;
-// 			set_rotation(Vector3(get_rotation_degrees().x
-// 					- (me->get_relative().y * _mouseSensitivity), 0, 0));
-// 			set_rotation(Vector3(CLAMP(get_rotation_degrees().x, -10, 30), 0,
-// 					0));
-// 		}
-// 	}
-// }
 void rtsCamera::_unhandled_input(const Ref<InputEvent> &event)
 {
 	Vector3	current_rot;
@@ -84,11 +64,15 @@ void rtsCamera::_unhandled_input(const Ref<InputEvent> &event)
 	if (motion.is_valid()
 		&& Input::get_singleton()->is_action_pressed("rotate"))
 	{
+		if (Input::get_singleton()->is_action_pressed("rotate"))
+			Input::get_singleton()->set_mouse_mode(Input::get_singleton()->MOUSE_MODE_CAPTURED);
 		_rotateKeyTarget -= motion->get_relative().x * _mouseSensitivity;
 		current_rot = get_rotation_degrees();
 		current_rot.x -= motion->get_relative().y * _mouseSensitivity;
-		current_rot.x = CLAMP(current_rot.x, -50, 200);
+		current_rot.x = CLAMP(current_rot.x, -20, 20);
 		current_rot.y = _rotateKeyTarget;
-		set_rotation_degrees(current_rot);
+		set_rotation_degrees(get_rotation_degrees().lerp(current_rot, 0.3));
 	}
+	if (event->is_action_released("rotate"))
+		Input::get_singleton()->set_mouse_mode(Input::get_singleton()->MOUSE_MODE_VISIBLE);
 }
