@@ -41,3 +41,6 @@ For getting started after cloning your own copy to your local machine, you shoul
 
 This repository comes with a GitHub action that builds the GDExtension for cross-platform use. It triggers automatically for each pushed change. You can find and edit it in [builds.yml](.github/workflows/builds.yml).
 After a workflow run is complete, you can find the file `godot-cpp-template.zip` on the `Actions` tab on GitHub.
+
+## IMPORTANT
+DO NOT forget to add your subdirectories to SConstruct otherwise it wont compile your code.
